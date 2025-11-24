@@ -5,6 +5,7 @@ import { AppLink as Link } from '../components/AppLink';
 import { Footer, SideNav, TableOfContents, TopNav } from '../components/Shell';
 
 import '@docsearch/css';
+import '@docsearch/css';
 import 'prismjs';
 import 'prismjs/components/prism-bash.min';
 import 'prismjs/components/prism-graphql.min';
@@ -21,8 +22,8 @@ import 'codemirror/lib/codemirror.css';
 
 import '../public/globals.css';
 
-const TITLE = 'Markdoc';
-const DESCRIPTION = 'A powerful, flexible, Markdown-based authoring framework';
+const TITLE = ' Actian Data Intelligence Platform';
+const DESCRIPTION = 'Democratize data access and accelerate data-driven initiatives';
 const MARKDOC = `
 
 
@@ -140,14 +141,13 @@ export default function MyApp(props) {
         Skip to content
       </a>
       <TopNav>
-        <Link href="/docs/getting-started">Docs</Link>
-        <Link href="https://github.com/markdoc/markdoc">GitHub</Link>
-        <Link href="https://github.com/markdoc/markdoc/discussions">
+        <Link href="/docs/overview">Docs</Link>
+        <Link href="https://docs.zeenea.com/">API</Link>
+        <Link href="https://communities.actian.com/s/?language=en_US">
           Community
         </Link>
-        <Link href="https://twitter.com/StripeDev">Twitter</Link>
         <span className="primary no-mobile">
-          <Link href="/sandbox">Try</Link>
+          <Link href="https://esd.actian.com/">Downloads</Link>
         </span>
       </TopNav>
       <div className="page">
@@ -160,12 +160,11 @@ export default function MyApp(props) {
       </div>
       <div className="footer-bar">
         <Footer landing={isLandingPage}>
-          <Link href="/docs/getting-started">Docs</Link>
-          <Link href="https://github.com/markdoc/markdoc">GitHub</Link>
-          <Link href="https://github.com/markdoc/markdoc/discussions">
+          <Link href="/docs/overview">Docs</Link>
+          <Link href="https://www.actian.com/support-services/">Support</Link>
+          <Link href="https://communities.actian.com/s/?language=en_US">
             Community
           </Link>
-          <Link href="https://twitter.com/StripeDev">Twitter</Link>
         </Footer>
       </div>
       <style jsx global>

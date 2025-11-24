@@ -85,7 +85,7 @@ function Type({ text, onEnd }) {
 }
 
 const text =
-  'Markdoc is a powerful, flexible, Markdown-based authoring framework.';
+  'Actian, Data Intelligence Platform, Turn your data, catalog, into, AI intelligence.';
 
 export function Typewriter() {
   const [state, setState] = React.useState(0);
@@ -97,15 +97,15 @@ export function Typewriter() {
     <h1 className="jumbo" aria-label={text}>
       <span className="prefers-no-animation">{text}</span>
       <span aria-hidden="true" className="prefers-animation">
-        <Swapper before="# Markdoc" after="Markdoc is" onEnd={next} />
-        {state >= 1 && <Type text=" a " onEnd={next} />}
+        <Swapper before="# Actian" after="Actian Data " onEnd={next} />
+        {state >= 1 && <Type text=" Intelligence " onEnd={next} />}
         {state >= 2 && (
-          <Swapper before="{% type %}" after="powerful," onEnd={next} />
+          <Swapper before="{% type %}" after=" Platform " onEnd={next} />
         )}
         {state >= 3 && (
           <>
             <br />
-            <Type text=" flexible, Markdown-based " onEnd={next} />
+            <Type text=" turns your data catalog  into " onEnd={next} />
           </>
         )}
         {state >= 4 && (
@@ -113,7 +113,7 @@ export function Typewriter() {
             <br />
             <Swapper
               before="{% toolchain %}"
-              after="authoring framework."
+              after="into AI intelligence."
               onEnd={setDone}
             />
           </>

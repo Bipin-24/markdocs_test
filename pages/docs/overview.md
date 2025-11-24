@@ -1,36 +1,92 @@
 ---
-title: What is Markdoc?
+title: Actian Data Intelligence Platform 
 description:
 ---
 
-# {% $markdoc.frontmatter.title %}
+# {% $markdoc.frontmatter.title %} {% #overview %}
 
-Markdoc is a Markdown-based document format and a framework for content publishing. It was designed internally at Stripe to meet the needs of our user-facing [product documentation](https://docs.stripe.com). Markdoc extends Markdown with a [custom syntax](/docs/syntax) for tags and annotations, providing a way to tailor content to individual users and introduce interactive elements.
 
-{% youtube
-  src="https://www.youtube-nocookie.com/embed/MAWK_VmjU1Y?controls=0"
-  title="Introducing Markdoc"
-  width="50%" /%}
+Actian provides an intelligent Data Intelligence Platform. This solution enables metadata management for search, exploration, data governance, compliance, and cloud transformation initiatives.
 
-## How Markdoc works
+![](/images/zeenea-platform.jpg)
 
-By design, Markdoc is not a full-blown templating language and does not allow mixing arbitrary code and content. It is, however, a fully declarative format that is machine-readable from top to bottom: it parses to a data structure that can be traversed to support powerful static analysis, validation, and programmatic content transformation.
+### Universal connectivity
 
-The Markdoc [renderer](/docs/render) interprets custom [tag](/docs/tags) and [node](/docs/nodes) definitions, transforming the document data structure into a tree of renderable nodes, which is finally converted into the desired output format. The Markdoc framework currently includes three renderers: an HTML string renderer, a static React renderer that transpiles a document to JavaScript code, and a dynamic React renderer that converts renderable tree nodes directly into a React elements.
+Actian Data Intelligence Platform connects to all your data sources in seconds. Our platform’s built-in scanners and APIs enable organizations to automatically collect, consolidate, and link metadata from their data ecosystem. Our connectivity includes a wide variety of data sources such as the Cloud, ERP/CRM, NoSQL, Processing, Relational, Visualization, and more.
 
-Markdoc's React renderer makes it possible to use React components within Markdown content, supporting interactive features like tab switchers and collapsible sections. It is possible to implement custom renderers that introduce support for additional output formats and client frameworks.
-## Why add markup to Markdown?
+### Cloud-native design
 
-We chose Markdown as a starting point because it is easy to read and reason about, already familiar to many engineers and technical writers, and widely supported by a large ecosystem of existing tools. Markdown by itself, however, isn't ideally suited for writing complex, highly-structured content like documentation.
+Our Data Intelligence Platform is cloud-native and developed as-a-Service (SaaS) to help enterprises reduce risks, optimize costs, and simplify data access across the organization. Our architecture makes it easy for you to deploy a variety of environments in the cloud – hybrid, inter-cloud, or multi-cloud.
 
-Markdoc provides an extensible system for defining custom tags that can be used seamlessly in Markdown content. Using the custom tag syntax, we're able to express more elaborate document hierarchy, insert interactive components, and support features like conditional content, content inclusion, and variable interpolation. Markdoc's extensions to the Markdown syntax are designed to be composable and minimally intrusive, providing crucial functionality without compromising the readability of prose. 
-## Under the hood
+### Powered by knowledge graph technologies
 
-Markdoc's parser is built on top of a popular open-source Markdown library called [`markdown-it`](https://github.com/markdown-it/markdown-it). Markdoc uses `markdown-it` as a tokenizer, building an Abstract Syntax Tree (AST) from the array of tokens emitted by `markdown-it`. Markdoc's custom tag syntax is implemented inside of a `markdown-it` plugin. The logic that parses the tag syntax is generated from a [peg.js](https://pegjs.org/) grammar.
+Our platform is powered by enhanced knowledge graph capabilities, providing rich and in-depth search results, optimized data discovery, and intelligent recommendations. Through machine learning algorithms, it provides structure for all your data and enables the creation of multilateral relations between your data assets.
 
-Markdoc has its own dedicated rendering architecture rather than relying on markdown-it to generate its output. Developing an independent rendering system was necessary in order to handle Markdoc's custom tags and support multiple output formats.
+### A safe & secure platform
 
-## Next steps
+Keeping our customers’ data safe and secure has always been a top priority at Actian Zeenea, this is why we are SOC 2 Type II and ISO 27001 compliant. This demonstrates our ongoing commitment to maintaining the highest data security standards.
 
-- [Install Markdoc](/docs/getting-started)
-- [Try it out online](/sandbox)
+## Platform Capabilities
+
+### Flexible Metamodel
+
+Via powerful knowledge graph technology, add, configure, and overlay documentation properties on your data through a flexible metamodel template. Simply drag & drop your properties, tags, and other metadata into your documentation templates and use our dynamic diagram to visualize your metamodels and their relations with other catalog objects, including domains, data products, custom assets, and more.
+
+### Automated Data Stewardship
+
+Actian Data Intelligence Platform provides a connected and automated metadata management solution that enables Data Stewards to overcome the challenges associated with handling increasingly large volumes of data. Our platform helps organizations maximize the value of their data by reducing the time spent on complex and time-consuming documentation tasks, and by breaking data silos to increase enterprise data knowledge.
+
+### Smart Data Discovery
+
+Strongly inspired by marketplaces and e-commerce websites, Zeenea offers smart searching capabilities for data consumers to quickly find the relevant data for their business use cases. Our Data Intelligence Platform provides a multi-dimensional search engine, able to retrieve the right information whether you know what you are looking for (high intent) or not (low intent).
+
+### Business Glossary
+
+Zeenea’s Business Glossary features enable the creation and sharing of a consistent business language across all data consumers within the organization. Through an easy-to-use interface that is supported by automation capabilities, data Management teams can:
+* Define rules, policies, and KPIs
+* Design reliable glossary models
+* Get suggestions for business terms
+* View the relations between glossary items
+
+###  Data Lineage
+
+Zeenea’s Data Lineage capabilities enable data teams to get a complete view of their data’s lifecycle – from its collection to its use, storage, and preservation over time. Automatically map the relationships between systems, applications, and reports to provide a context-rich data ecosystem for your organization.
+Through an interactive and user-friendly lineage graph, better understand your data, easily identify transformations, and ensure regulatory compliance.
+
+### Data Quality
+
+Zeenea automatically synchronizes with your data quality solutions, enabling your users to view their datasets’ quality metrics from the discovery phase of their data use cases.
+Our platform helps organizations make better business decisions by enabling data users to quickly detect and take action on a dataset’s quality to uncover its trustworthiness before an issue arises.
+
+## Use Cases
+
+### Data Catalog
+
+Zeenea Data Platform enables Data Managers and Data Producers to master the organization's data landscape by providing advanced back-office capabilities:
+* Information modelling (metadata model)
+* Automation, suggestions, productivity
+* Data Stewardship workflows
+* Expert system
+Zeenea’s federated graph-powered EDM enables organizations to mirror the Data Mesh at the metadata level and build a global, scalable, supervision plane that is perfectly integrated with data production and consumption processes.
+
+### Enterprise Data Marketplace
+
+The Enterprise Data Marketplace (EDM) is an e-commerce-like solution, where Data Producers publish their products and Data Consumers explore, understand, and acquire these published products.
+The Marketplace sits on top of the Data Catalog to share and exchange the most valuable Domain Data packaged as Data Products.
+
+## Applications
+
+
+Zeenea provides dedicated applications and user experiences (UX) for different user personas.
+
+### Zeenea Studio
+
+Zeenea Studio enables data management teams to manage, maintain, and enrich the documentation of their company’s data assets. It serves as the back-office tool of the platform.
+![](/images/zeenea-studio-intro.png)
+
+### Zeenea Explorer
+
+With Zeenea Explorer, business users can access a user-friendly interface and customized exploration paths to make their data discovery more efficient. It offers a simple and intuitive interface designed for efficient data exploration and collaboration.
+![](/images/zeenea-explorer.png)
+
+

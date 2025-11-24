@@ -1,29 +1,13 @@
 import React from 'react';
-import Markdoc from '@markdoc/markdoc';
-import { Editor, useMarkdocCode } from './Sandbox';
-import { EditPagePanel } from './EditPagePanel';
+import { TableOfContents } from './Shell/TableOfContents';
 
-function EditPage({ source: initialDocument }) {
-  const [doc, setDoc] = React.useState(initialDocument);
-  const { content, config, errors } = useMarkdocCode(doc);
-
+export function Document({ toc = [], children }) {
   return (
-    <>
-      {Markdoc.renderers.react(content.children, React, {
-        components: config.components
-      })}
-      <EditPagePanel>
-        <Editor code={doc} onChange={setDoc} errors={errors} />
-      </EditPagePanel>
-    </>
+    <div style={{ display: 'flex', alignItems: 'flex-start' }}>
+      <article style={{ flex: 1 }}>{children}</article>
+      <aside style={{ marginLeft: '2rem' }}>
+        <TableOfContents toc={toc} />
+      </aside>
+    </div>
   );
-}
-
-export function Document({ source, children }) {
-  /**
-   * Typically you would just render children here, but we are adding
-   * this extra branch in order to pop up the editor that reveals
-   * the source content for each document
-   */
-  return <article>{source ? <EditPage source={source} /> : children}</article>;
 }
