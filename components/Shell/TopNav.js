@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { DocSearch } from '@docsearch/react';
 
 import { AppLink as Link } from '../AppLink';
@@ -20,8 +21,8 @@ export function TopNav({ children }) {
       <nav>
         <div className="flex top-row">
           <Link href="/" className="flex">
-  <img src="/logo.svg" alt="Logo" style={{ height: 37, width: 325 }} />
-</Link>
+            <Image src="/logo.svg" alt="Logo" width={325} height={37} priority />
+          </Link>
           <button
             className="hamburger"
             onClick={() => setShowMobileNav((o) => !o)}

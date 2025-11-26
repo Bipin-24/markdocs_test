@@ -37,8 +37,6 @@ const MARKDOC = `
 
 `;
 
-const FONTS_BASE_URL = process.env.NEXT_PUBLIC_FONTS_BASE_URL || '/fonts';
-
 function collectHeadings(node, sections = []) {
   if (node) {
     if (node.name === 'Heading') {
@@ -92,27 +90,6 @@ export default function MyApp(props) {
         <title>{`${TITLE} | ${title}`}</title>
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="icon" href="/favicon.ico" />
-        <link
-          rel="preload"
-          as="font"
-          href={`${FONTS_BASE_URL}/GT-America-Mono-Regular.otf`}
-          crossOrigin=""
-          type="font/otf"
-        />
-        <link
-          rel="preload"
-          as="font"
-          href={`${FONTS_BASE_URL}/GT-America-Mono-Medium.otf`}
-          crossOrigin=""
-          type="font/otf"
-        />
-        <link
-          rel="preload"
-          as="font"
-          href={`${FONTS_BASE_URL}/tiempos-headline-light.woff2`}
-          crossOrigin=""
-          type="font/woff2"
-        />
         <link
           rel="preconnect"
           href={`https://${process.env.NEXT_PUBLIC_ALGOLIA_APP_ID}-dsn.algolia.net`}
@@ -169,29 +146,6 @@ export default function MyApp(props) {
       </div>
       <style jsx global>
         {`
-          @font-face {
-            font-family: 'GT America Mono';
-            font-style: normal;
-            font-weight: normal;
-            src: url('${FONTS_BASE_URL}/GT-America-Mono-Regular.otf')
-              format('opentype');
-          }
-
-          @font-face {
-            font-family: 'GT America Mono';
-            font-style: normal;
-            font-weight: 500;
-            src: url('${FONTS_BASE_URL}/GT-America-Mono-Medium.otf')
-              format('opentype');
-          }
-
-          @font-face {
-            font-family: 'Tiempos';
-            font-style: normal;
-            src: url('${FONTS_BASE_URL}/tiempos-headline-light.woff2');
-            font-display: block;
-          }
-
           .page {
             display: flex;
             flex-grow: 1;

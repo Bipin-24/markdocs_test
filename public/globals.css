@@ -18,8 +18,8 @@
 
   --sans: -apple-system, BlinkMacSystemFont, Inter, Segoe UI, Helvetica Neue,
     sans-serif;
-  --serif: Tiempos, serif;
-  --mono: GT America Mono, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono',
+  --serif: 'Roboto', serif;
+  --mono: 'Source Code Pro', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono',
     monospace;
 
   --font-size-0: 8px;
@@ -30,7 +30,7 @@
   --font-size-5: 24px;
   --font-size-6: 32px;
   --font-size-7: 38px;
-  --font-size-jumbo: 79px;
+  --font-size-jumbo: 64px;
 
   --line-height-1: 16px;
   --line-height-2: 20px;
