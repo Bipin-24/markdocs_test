@@ -9,6 +9,7 @@ import youtube from './youtube.markdoc';
 import sandbox from './sandbox.markdoc';
 import table from './table.markdoc';
 import sideBySide from './side-by-side.markdoc';
+import api from './api.markdoc';
 
 export default {
   callout,
@@ -22,4 +23,5 @@ export default {
   sandbox,
   table,
   sideBySide,
+  ...api,
 };

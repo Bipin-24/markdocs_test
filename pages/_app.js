@@ -88,8 +88,8 @@ export default function MyApp(props) {
     <div className={`${isLandingPage ? 'page--landing' : ''}`}>
       <Head>
         <title>{`${TITLE} | ${title}`}</title>
-        <link rel="shortcut icon" href="/favicon.ico" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="shortcut icon" href="/favicon.png" />
         <link
           rel="preconnect"
           href={`https://${process.env.NEXT_PUBLIC_ALGOLIA_APP_ID}-dsn.algolia.net`}
@@ -119,12 +119,15 @@ export default function MyApp(props) {
       </a>
       <TopNav>
         <Link href="/docs/overview">Docs</Link>
-        <Link href="https://docs.zeenea.com/">API</Link>
+        <Link href="/docs/api">API</Link>
         <Link href="https://communities.actian.com/s/?language=en_US">
           Community
         </Link>
-        <span className="primary no-mobile">
+        <span className="no-mobile">
           <Link href="https://esd.actian.com/">Downloads</Link>
+        </span>
+        <span className="primary">
+          <Link href="/sandbox">Try</Link>
         </span>
       </TopNav>
       <div className="page">
