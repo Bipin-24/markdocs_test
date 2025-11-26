@@ -5,11 +5,19 @@ import { DocSearch } from '@docsearch/react';
 import { AppLink as Link } from '../AppLink';
 
 function Search() {
+  // Only render search if Algolia credentials are configured
+  const hasAlgoliaConfig = process.env.NEXT_PUBLIC_ALGOLIA_APP_ID && 
+                          process.env.NEXT_PUBLIC_ALGOLIA_API_KEY;
+  
+  if (!hasAlgoliaConfig) {
+    return null; // Hide search bar if no API keys
+  }
+  
   return (
     <DocSearch
       appId={process.env.NEXT_PUBLIC_ALGOLIA_APP_ID}
       apiKey={process.env.NEXT_PUBLIC_ALGOLIA_API_KEY}
-      indexName="markdoc"
+      indexName="Documentation Website"
     />
   );
 }
