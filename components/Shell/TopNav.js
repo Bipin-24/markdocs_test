@@ -77,6 +77,15 @@ export function TopNav({ children }) {
           }
           nav :global(a) {
             text-decoration: none;
+            font-weight: 700;
+            color: #2c2c2c;
+          }
+          :global(.dark) nav :global(a) {
+            color: #e8e8e8;
+          }
+          nav :global(a.primary) {
+            font-weight: 700;
+            color: #1473e6;
           }
           nav :global(.DocSearch-Button) {
             background: var(--code-background);
@@ -92,7 +101,8 @@ export function TopNav({ children }) {
           }
           nav :global(.DocSearch-Search-Icon) {
             color: var(--dark);
-            width: 16px;
+            width: 20px;
+            opacity: 0.85;
           }
           nav :global(.DocSearch-Button-Placeholder),
           nav :global(.DocSearch-Button-Keys) {

@@ -134,27 +134,32 @@ body.modal-is-active {
   overflow: hidden;
 }
 
+/* Updated styles for landing page - thicker titles and colorful links */
 a {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 1px;
   transition: opacity 300ms ease;
+  color: #0073e6;
 }
 
 a:hover {
   opacity: 0.75;
 }
 
+/* Colorful primary buttons/links */
 .primary a,
 a.primary {
   text-decoration: none;
   font-weight: 600;
   white-space: nowrap;
+  color: #1473e6;
+  transition: all 300ms ease;
 }
 
 .primary a:hover,
 a.primary:hover {
-  opacity: 1;
+  opacity: 0.75;
 }
 
 .primary a::after,
@@ -214,10 +219,12 @@ p:last-child {
   padding-bottom: 0;
 }
 
+/* Thicker hero titles */
 h1,
 .h1 {
   font-size: var(--font-size-7);
   line-height: var(--line-height-7);
+  font-weight: 800;
 }
 
 h2,
@@ -255,9 +262,11 @@ h5,
 
 }
 
+/* Extra thick jumbo titles */
 h1.jumbo {
   font-size: var(--font-size-jumbo);
   line-height: var(--line-height-jumbo);
+  font-weight: 900;
 }
 
 h2.jumbo {
@@ -292,12 +301,86 @@ code {
   white-space: nowrap;
 }
 
-img {
+/* Main content images - exclude navigation logo */
+img:not(nav img) {
   max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 2rem auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+img:not(nav img):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation logo - keep original style, no shadows or borders */
+nav img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Inline images (within paragraphs or links) */
+p img,
+a img {
+  display: inline-block;
+  margin: 0;
+  vertical-align: middle;
+}
+
+/* Small icons in tables */
+td img {
+  display: inline-block;
+  margin: 0 auto;
+  max-width: 20px;
+  max-height: 20px;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+td img:hover {
+  transform: none;
+  box-shadow: none;
 }
 
 p a + a > img {
   margin-left: 0.75rem;
+}
+
+/* Figure elements with captions */
+figure {
+  margin: 2rem auto;
+  text-align: center;
+  max-width: 100%;
+}
+
+figure img {
+  margin: 0 auto 1rem;
+}
+
+figcaption {
+  font-size: 0.875rem;
+  color: var(--gray);
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+/* Article/content area images - larger display */
+article img:not(td img):not(p img) {
+  max-width: 95%;
+  margin: 2.5rem auto;
+}
+
+/* Ensure images maintain aspect ratio */
+img[width][height] {
+  height: auto;
 }
 
 pre {
@@ -374,6 +457,21 @@ article {
 
 .flex {
   display: flex;
+}
+
+/* Logo enhancement - subtle and professional */
+nav .flex img {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  filter: brightness(1);
+}
+
+nav .flex:hover img {
+  opacity: 0.85;
+  transform: scale(1.02);
+}
+
+nav .flex:active img {
+  transform: scale(0.98);
 }
 
 .row {
@@ -555,6 +653,12 @@ main .CodeMirror-scroll::-webkit-scrollbar {
   .no-mobile {
     display: none;
   }
+  
+  /* Responsive images on mobile */
+  img {
+    margin: 1.5rem auto;
+    border-radius: 6px;
+  }
 }
 
 @media (prefers-reduced-motion) {
@@ -565,4 +669,3 @@ main .CodeMirror-scroll::-webkit-scrollbar {
     display: initial;
   }
 }
-

@@ -1,0 +1,639 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Data Intelligence API",
+    "version": "1.0.0",
+    "description": "Enterprise data intelligence API that empowers data teams and AI agents to discover, trust, and activate data at scale."
+  },
+  "servers": [
+    {
+      "url": "https://api.example.com/v1",
+      "description": "Production server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the user"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "description": "User's email address"
+          },
+          "name": {
+            "type": "string",
+            "description": "User's full name"
+          },
+          "role": {
+            "type": "string",
+            "enum": ["admin", "user", "viewer"],
+            "description": "User's role in the system"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp when user was created"
+          }
+        }
+      },
+      "DataAsset": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the data asset"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the data asset"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["table", "view", "file", "api"],
+            "description": "Type of data asset"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the data asset"
+          },
+          "schema": {
+            "type": "object",
+            "description": "Schema definition of the data asset"
+          },
+          "owner": {
+            "type": "string",
+            "description": "Owner of the data asset"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tags associated with the asset"
+          },
+          "quality_score": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100,
+            "description": "Data quality score (0-100)"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/users": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "List all users",
+        "description": "Retrieve a paginated list of all users in the system. You can filter by role and search by name or email.",
+        "operationId": "listUsers",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results to return per page",
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Number of results to skip for pagination",
+            "schema": {
+              "type": "integer",
+              "default": 0,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "role",
+            "in": "query",
+            "description": "Filter by user role",
+            "schema": {
+              "type": "string",
+              "enum": ["admin", "user", "viewer"]
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Search users by name or email",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with list of users",
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": [
+                    {
+                      "id": "usr_1234567890",
+                      "email": "john@example.com",
+                      "name": "John Doe",
+                      "role": "admin",
+                      "created_at": "2024-01-15T10:30:00Z"
+                    }
+                  ],
+                  "total": 1,
+                  "limit": 10,
+                  "offset": 0
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing API key"
+          },
+          "403": {
+            "description": "Forbidden - Insufficient permissions"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Users"],
+        "summary": "Create a new user",
+        "description": "Create a new user in the system. Requires admin privileges.",
+        "operationId": "createUser",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["email", "name", "role"],
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "description": "User's email address"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "User's full name"
+                  },
+                  "role": {
+                    "type": "string",
+                    "enum": ["admin", "user", "viewer"],
+                    "description": "User's role in the system"
+                  },
+                  "password": {
+                    "type": "string",
+                    "minLength": 8,
+                    "description": "User's password (minimum 8 characters)"
+                  }
+                }
+              },
+              "example": {
+                "email": "jane@example.com",
+                "name": "Jane Smith",
+                "role": "user",
+                "password": "securepassword123"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "User created successfully",
+            "content": {
+              "application/json": {
+                "example": {
+                  "id": "usr_9876543210",
+                  "email": "jane@example.com",
+                  "name": "Jane Smith",
+                  "role": "user",
+                  "created_at": "2024-01-15T11:00:00Z"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid input"
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing API key"
+          },
+          "403": {
+            "description": "Forbidden - Insufficient permissions"
+          },
+          "409": {
+            "description": "Conflict - User with this email already exists"
+          }
+        }
+      }
+    },
+    "/users/{user_id}": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "Retrieve a user",
+        "description": "Get detailed information about a specific user by their ID.",
+        "operationId": "getUser",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the user to retrieve",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "example": {
+                  "id": "usr_1234567890",
+                  "email": "john@example.com",
+                  "name": "John Doe",
+                  "role": "admin",
+                  "created_at": "2024-01-15T10:30:00Z"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Users"],
+        "summary": "Update a user",
+        "description": "Update an existing user's information. You can update email, name, and role.",
+        "operationId": "updateUser",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the user to update",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "role": {
+                    "type": "string",
+                    "enum": ["admin", "user", "viewer"]
+                  }
+                }
+              },
+              "example": {
+                "name": "John Updated Doe",
+                "role": "admin"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "User updated successfully"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Users"],
+        "summary": "Delete a user",
+        "description": "Permanently delete a user from the system. This action cannot be undone.",
+        "operationId": "deleteUser",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the user to delete",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "User deleted successfully"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/data-assets": {
+      "get": {
+        "tags": ["Data Assets"],
+        "summary": "List data assets",
+        "description": "Retrieve a list of all data assets. Filter by type, owner, tags, or search by name.",
+        "operationId": "listDataAssets",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Filter by asset type",
+            "schema": {
+              "type": "string",
+              "enum": ["table", "view", "file", "api"]
+            }
+          },
+          {
+            "name": "owner",
+            "in": "query",
+            "description": "Filter by asset owner",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tags",
+            "in": "query",
+            "description": "Filter by tags (comma-separated)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "min_quality",
+            "in": "query",
+            "description": "Minimum quality score filter",
+            "schema": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": [
+                    {
+                      "id": "asset_abc123",
+                      "name": "customer_transactions",
+                      "type": "table",
+                      "description": "Customer transaction history",
+                      "owner": "data-team",
+                      "tags": ["finance", "customers", "pii"],
+                      "quality_score": 95
+                    }
+                  ],
+                  "total": 1
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Data Assets"],
+        "summary": "Create data asset",
+        "description": "Register a new data asset in the catalog.",
+        "operationId": "createDataAsset",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["name", "type"],
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string",
+                    "enum": ["table", "view", "file", "api"]
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "schema": {
+                    "type": "object"
+                  },
+                  "owner": {
+                    "type": "string"
+                  },
+                  "tags": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "example": {
+                "name": "user_activity_log",
+                "type": "table",
+                "description": "Log of all user activities",
+                "owner": "analytics-team",
+                "tags": ["analytics", "logs"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Data asset created successfully"
+          }
+        }
+      }
+    },
+    "/data-assets/{asset_id}": {
+      "get": {
+        "tags": ["Data Assets"],
+        "summary": "Get data asset",
+        "description": "Retrieve detailed information about a specific data asset including schema, lineage, and quality metrics.",
+        "operationId": "getDataAsset",
+        "parameters": [
+          {
+            "name": "asset_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "404": {
+            "description": "Data asset not found"
+          }
+        }
+      }
+    },
+    "/data-assets/{asset_id}/quality": {
+      "get": {
+        "tags": ["Data Quality"],
+        "summary": "Get quality metrics",
+        "description": "Retrieve quality metrics and validation results for a data asset.",
+        "operationId": "getQualityMetrics",
+        "parameters": [
+          {
+            "name": "asset_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "example": {
+                  "asset_id": "asset_abc123",
+                  "overall_score": 95,
+                  "completeness": 98,
+                  "accuracy": 96,
+                  "consistency": 92,
+                  "timeliness": 94,
+                  "last_validated": "2024-01-15T12:00:00Z"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/search": {
+      "get": {
+        "tags": ["Search"],
+        "summary": "Search catalog",
+        "description": "Search across all data assets, users, and metadata using full-text search.",
+        "operationId": "searchCatalog",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "description": "Search query string",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Additional filters (JSON format)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Search results",
+            "content": {
+              "application/json": {
+                "example": {
+                  "results": [
+                    {
+                      "type": "data_asset",
+                      "id": "asset_abc123",
+                      "name": "customer_transactions",
+                      "relevance_score": 0.95
+                    }
+                  ],
+                  "total": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Users",
+      "description": "User management operations"
+    },
+    {
+      "name": "Data Assets",
+      "description": "Data asset catalog and metadata management"
+    },
+    {
+      "name": "Data Quality",
+      "description": "Data quality monitoring and validation"
+    },
+    {
+      "name": "Search",
+      "description": "Search and discovery operations"
+    }
+  ]
+}

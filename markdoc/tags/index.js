@@ -10,6 +10,9 @@ import sandbox from './sandbox.markdoc';
 import table from './table.markdoc';
 import sideBySide from './side-by-side.markdoc';
 import api from './api.markdoc';
+import feedback from './feedback.markdoc';
+import quickstart from './quickstart.markdoc';
+import apitryit from './apitryit.markdoc';
 
 export default {
   callout,
@@ -23,5 +26,8 @@ export default {
   sandbox,
   table,
   sideBySide,
+  feedback,
+  quickstart,
+  apitryit,
   ...api,
 };

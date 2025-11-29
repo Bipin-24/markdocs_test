@@ -81,12 +81,12 @@ Zeenea provides dedicated applications and user experiences (UX) for different u
 
 ### Zeenea Studio
 
-Zeenea Studio enables data management teams to manage, maintain, and enrich the documentation of their company’s data assets. It serves as the back-office tool of the platform.
+Zeenea Studio enables data management teams to manage, maintain, and enrich the documentation of their company’s data assets. It serves as the back-office tool of the platform.  
+
 ![](/images/zeenea-studio-intro.png)
 
 ### Zeenea Explorer
 
-With Zeenea Explorer, business users can access a user-friendly interface and customized exploration paths to make their data discovery more efficient. It offers a simple and intuitive interface designed for efficient data exploration and collaboration.
+With Zeenea Explorer, business users can access a user-friendly interface and customized exploration paths to make their data discovery more efficient. It offers a simple and intuitive interface designed for efficient data exploration and collaboration.  
+
 ![](/images/zeenea-explorer.png)
-
-

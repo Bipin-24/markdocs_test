@@ -1,3 +1,4 @@
+export { Ascii } from './Ascii';
 export { Callout } from './Callout';
 export { Code } from './Code';
 export { Document } from './Document';
@@ -7,5 +8,9 @@ export { Table } from './Table';
 export { Typewriter } from './Typewriter';
 export { YouTube } from './YouTube';
 export { SideBySide } from './SideBySide';
+export { TwoColumn } from './TwoColumn';
 export { Features } from './Features';
 export { ApiLayout, ApiSection, ApiDescription, ApiCode, ApiEndpoint, ApiParameters, ApiParameter } from './ApiLayout';
+export { Feedback } from './Feedback';
+export { QuickStart } from './QuickStart';
+export { ApiTryIt } from './ApiTryIt';

@@ -81,6 +81,7 @@ export default function MyApp(props) {
 
   const isDocs = props.router.asPath.startsWith('/docs');
   const isLandingPage = props.router.pathname === '/';
+  const isApiPage = props.router.pathname === '/api-docs' || props.router.pathname === '/api-reference';
 
   React.useEffect(() => console.log(MARKDOC), []);
 
@@ -119,7 +120,7 @@ export default function MyApp(props) {
       </a>
       <TopNav>
         <Link href="/docs/overview">Docs</Link>
-        <Link href="/docs/api">API</Link>
+        <Link href="/api-docs">API</Link>
         <Link href="https://communities.actian.com/s/?language=en_US">
           Community
         </Link>
@@ -131,12 +132,12 @@ export default function MyApp(props) {
         </span>
       </TopNav>
       <div className="page">
-        {isDocs ? <SideNav /> : null}
-        <main className="flex column">
+        {isDocs && !isApiPage ? <SideNav /> : null}
+        <main className={`flex column ${isApiPage ? 'full-width' : ''}`}>
           <div id="skip-nav" />
           <Component {...pageProps} />
         </main>
-        {isDocs && toc ? <TableOfContents toc={toc} /> : null}
+        {isDocs && toc && !isApiPage ? <TableOfContents toc={toc} /> : null}
       </div>
       <div className="footer-bar">
         <Footer landing={isLandingPage}>
@@ -190,6 +191,12 @@ export default function MyApp(props) {
             max-width: 100%;
             /* https://stackoverflow.com/questions/36230944/prevent-flex-items-from-overflowing-a-container */
             min-width: 0;
+          }
+
+          main.full-width {
+            max-width: 100%;
+            width: 100%;
+            padding: 0;
           }
 
           main article {
