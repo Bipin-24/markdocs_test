@@ -194,6 +194,24 @@ curl https://api.actian.com/v1/catalogs \
 
 {% /api-section %}
 
+{% apitryit 
+  endpoint="https://api.actian.com/v1/catalogs"
+  method="POST"
+  description="Create a new catalog in the Actian platform"
+  parameters=[
+    { "name": "name", "description": "The name of the catalog", "required": true },
+    { "name": "description", "description": "A description of the catalog's purpose", "required": false },
+    { "name": "tags", "description": "Array of tags for categorization", "required": false },
+    { "name": "access_level", "description": "Access level: public, private, or restricted", "required": false }
+  ]
+  body={
+    "name": "Production Catalog",
+    "description": "Main production data assets",
+    "tags": ["production", "critical"],
+    "access_level": "private"
+  }
+/%}
+
 {% api-section id="retrieve-catalog" %}
 
 {% api-endpoint method="GET" path="/v1/catalogs/:id" description="Retrieve a catalog" /%}
