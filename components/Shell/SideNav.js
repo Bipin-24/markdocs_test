@@ -39,6 +39,14 @@ const items = [
       { href: '/docs/zeenea-data-product-api', children: 'Data Product' },
     ]
   },
+  {
+    title: 'Resources',
+    links: [
+      { href: '/docs/markdoc-features-guide', children: '📚 Markdoc Features Guide' },
+      { href: '/docs/quick-links', children: '🔗 Quick Links' },
+      { href: '/docs/diagrams-and-visualization', children: '🎨 Diagrams & Visualization' },
+    ]
+  },
 ];
 
 export function SideNav() {
