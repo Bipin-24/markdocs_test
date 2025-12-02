@@ -105,7 +105,7 @@ export function Typewriter() {
         {state >= 3 && (
           <>
             <br />
-            <Type text=" turns your data catalog  into " onEnd={next} />
+            <Type text=" turns your data catalog " onEnd={next} />
           </>
         )}
         {state >= 4 && (
