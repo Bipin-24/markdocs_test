@@ -29,7 +29,7 @@ export function TopNav({ children }) {
       <nav>
         <div className="flex top-row">
           <Link href="/" className="flex">
-            <Image src="/logo.svg" alt="Logo" width={325} height={37} priority />
+            <Image src="/actian-logo.svg" alt="Actian Logo" width={225} height={37} priority />
           </Link>
           <button
             className="hamburger"
