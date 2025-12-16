@@ -86,28 +86,28 @@ export default function StepByStep({ steps = [], initial = 0 }) {
         .stepper.overlay { max-width: 900px; margin: 2rem auto; border: 1px solid var(--dark-2); border-radius: 16px; background: var(--light); padding: 0; box-shadow: 0 2px 16px rgba(20,115,230,0.04); }
         .mediaOverlayWrap { position: relative; width: 100%; }
         .mediaStage { position: relative; width: 100%; }
-        .media { width: 100%; min-height: 420px; border-radius: 16px; border: 1px solid var(--dark-2); background: #000; animation: fadeIn 250ms ease; display: block; }
-        .media.placeholder { display: grid; place-items: center; height: 420px; background: #f5f7fa; color: #777; }
+        .media { width: 100%; min-height: 460px; min-width: 100%; border-radius: 16px; border: 1px solid var(--dark-2); background: #000; animation: fadeIn 250ms ease; display: block; }
+        .media.placeholder { display: grid; place-items: center; height: 460px; background: #f5f7fa; color: #777; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         .hotspots { position: absolute; inset: 0; pointer-events: none; }
         .hotspot { position: absolute; border: 2px solid #ffbf47; border-radius: 6px; background: rgba(255,191,71,0.12); }
         .hotLabel { position: absolute; top: -1.6rem; left: 0; background: #ffbf47; color: #1b1b1b; font-size: 12px; padding: 2px 6px; border-radius: 4px; }
         .overlayBar {
           position: absolute;
-          left: 16px;
-          right: 16px;
+          left: 0;
+          right: 0;
           bottom: 0px;
           display: flex;
           align-items: center;
           gap: 0.5rem;
           background: rgb(247, 120, 149); /* lighter pink/red background */
-          border-radius: 10px;
-          padding: 0.12rem 0.4rem;
+          border-radius: 0 0 16px 16px;
+          padding: 0.12rem 0;
           font-size: 0.95rem;
           min-height: 28px;
           pointer-events: auto;
           box-shadow: 0 2px 8px rgba(20,115,230,0.10);
-          max-width: calc(100% - 32px);
+          max-width: 100%;
         }
         .badge {
           display: inline-flex;
@@ -152,7 +152,7 @@ export default function StepByStep({ steps = [], initial = 0 }) {
           color: #fff;
           border-color: #0d5bb5;
         }
-        @media (max-width: 700px) { .stepper.overlay { padding: 0.5rem; } .overlayBar { font-size: 0.88rem; padding: 0.08rem 0.2rem; min-height: 22px; left: 8px; right: 8px; bottom: 8px; max-width: calc(100% - 16px); } .badge { width: 18px; height: 18px; font-size: 0.8rem; } }
+        @media (max-width: 700px) { .stepper.overlay { padding: 0.5rem; } .media { min-height: 320px; } .overlayBar { font-size: 0.88rem; padding: 0.08rem 0; min-height: 22px; left: 0; right: 0; bottom: 0; max-width: 100%; border-radius: 0 0 12px 12px; } .badge { width: 18px; height: 18px; font-size: 0.8rem; } }
       `}</style>
     </div>
   );
