@@ -26,8 +26,6 @@ export default function StepByStep({ steps = [], initial = 0 }) {
     }
   }, [active, mounted]);
 
-  const goTo = (i) => setActive(i);
-
   const step = steps[active] || {};
   const hotspots = step.hotspots || [];
 
