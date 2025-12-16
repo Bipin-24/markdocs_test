@@ -45,3 +45,19 @@ Then you should be able to try the following features:
 Once your perimeter is defined, you can start its documentation. For more details on item documentation, see [Understanding the Documentation of an Item](../Stewardship/zeenea-item-documentation.md).
 
 ![](/images/zeenea-perimeter.png)
+
+
+
+#### Data Steward
+
+{% stepper initial=0 %}
+{% step title="Login to Discovery Platform" img="/images/zeenea-data-steward.png" %}
+From the top navigation, click Login, then select Users.
+{% /step %}
+{% step title="Configure zeenea platform" img="/images/zeenea-import-dialog.png" %}
+Click Add User → fill name, email, role → Save.
+{% /step %}
+{% step title="Define data catalog metamodel" img="/images/zeenea-perimeter.png" %}
+Open the Roles tab, edit permissions, and apply changes.
+{% /step %}
+{% /stepper %}

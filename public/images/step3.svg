@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <rect width="960" height="540" fill="#0b1e2d"/>
+  <rect x="24" y="24" width="912" height="72" rx="8" fill="#152f47"/>
+  <rect x="24" y="120" width="280" height="396" rx="8" fill="#152f47"/>
+  <rect x="324" y="120" width="612" height="396" rx="8" fill="#101820"/>
+  <rect x="344" y="168" width="120" height="40" rx="8" fill="#1473e6"/>
+  <text x="356" y="194" fill="#ffffff" font-family="Inter, Arial" font-size="16">Roles</text>
+  <rect x="344" y="240" width="280" height="32" rx="6" fill="#152f47"/>
+  <rect x="344" y="280" width="280" height="32" rx="6" fill="#152f47"/>
+  <rect x="344" y="320" width="280" height="32" rx="6" fill="#152f47"/>
+  <text x="356" y="262" fill="#a7c7e7" font-family="Inter, Arial" font-size="14">Viewer</text>
+  <text x="356" y="302" fill="#a7c7e7" font-family="Inter, Arial" font-size="14">Editor</text>
+  <text x="356" y="342" fill="#a7c7e7" font-family="Inter, Arial" font-size="14">Admin</text>
+</svg>

@@ -13,6 +13,7 @@ import api from './api.markdoc';
 import feedback from './feedback.markdoc';
 import quickstart from './quickstart.markdoc';
 import apitryit from './apitryit.markdoc';
+import { stepper, step } from './stepper.markdoc';
 
 export default {
   callout,
@@ -30,4 +31,6 @@ export default {
   quickstart,
   apitryit,
   ...api,
+  stepper,
+  step,
 };

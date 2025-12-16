@@ -90,3 +90,21 @@ Zeenea Studio enables data management teams to manage, maintain, and enrich the 
 With Zeenea Explorer, business users can access a user-friendly interface and customized exploration paths to make their data discovery more efficient. It offers a simple and intuitive interface designed for efficient data exploration and collaboration.  
 
 ![](/images/zeenea-explorer.png)
+
+#### Quick Start: Admin actions walkthrough
+
+{% stepper initial=0 %}
+{% step title="Login to Discovery Platform" img="/images/zeenea-platform.jpg" %}
+From the top navigation, click Login, then select Users.
+{% /step %}
+{% step title="Configure zeenea platform" img="/images/zeenea-studio-intro.png" %}
+Click Add User → fill name, email, role → Save.
+{% /step %}
+{% step title="Define data catalog metamodel" img="/images/zeenea-explorer.png" %}
+Open the Roles tab, edit permissions, and apply changes.
+{% /step %}
+{% /stepper %}
+
+
+
+

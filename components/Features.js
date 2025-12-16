@@ -27,7 +27,7 @@ export function Features({ children }) {
           .features :global(li strong) {
             font-family: var(--sans);
             font-size: 18px;
-            font-weight: 590;
+            font-weight: 500;
             line-height: 27px;
             letter-spacing: 0em;
           }
