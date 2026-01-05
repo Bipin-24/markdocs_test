@@ -41,7 +41,15 @@ export function TopNav({ children }) {
       <nav>
         <div className="flex top-row">
           <Link href="/" className="flex">
-            <Image src="/actian-logo.svg" alt="Actian Logo" width={225} height={37} priority />
+            <Image
+              src="/actian-logo.svg"
+              alt="Actian"
+              title="Actian"
+              width={270}
+              height={60}
+              style={{ height: '60px', width: 'auto' }}
+              priority
+            />
           </Link>
           <button
             className="hamburger"
@@ -89,15 +97,6 @@ export function TopNav({ children }) {
           }
           nav :global(a) {
             text-decoration: none;
-            font-weight: 700;
-            color: #2c2c2c;
-          }
-          :global(.dark) nav :global(a) {
-            color: #e8e8e8;
-          }
-          nav :global(a.primary) {
-            font-weight: 700;
-            color: #1473e6;
           }
           nav :global(.DocSearch-Button) {
             background: var(--code-background);
@@ -112,9 +111,14 @@ export function TopNav({ children }) {
             background: #424248;
           }
           nav :global(.DocSearch-Search-Icon) {
+            color: #e3e8ef;
+            width: 16px;
+          }
+          nav :global(.DocSearch-Button:hover .DocSearch-Search-Icon) {
             color: var(--dark);
-            width: 20px;
-            opacity: 0.85;
+          }
+          :global(.dark) nav :global(.DocSearch-Button:hover .DocSearch-Search-Icon) {
+            color: #e3e8ef;
           }
           nav :global(.DocSearch-Button-Placeholder),
           nav :global(.DocSearch-Button-Keys) {
@@ -165,4 +169,3 @@ export function TopNav({ children }) {
     </div>
   );
 }
-

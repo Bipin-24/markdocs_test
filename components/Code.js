@@ -39,10 +39,17 @@ Prism.languages.markdoc = {
 
 export function Code({ children, 'data-language': language }) {
   const [copied, setCopied] = React.useState(false);
+  const [isMounted, setIsMounted] = React.useState(false);
   const ref = React.useRef(null);
 
   React.useEffect(() => {
-    if (ref.current) Prism.highlightElement(ref.current, false);
+    setIsMounted(true);
+  }, []);
+
+  React.useEffect(() => {
+    if (ref.current) {
+      Prism.highlightElement(ref.current, false);
+    }
   }, [children]);
 
   React.useEffect(() => {
@@ -66,9 +73,19 @@ export function Code({ children, 'data-language': language }) {
         key={children}
         ref={ref}
         className={`language-${lang}`}
+        data-line-numbers={lines.length}
       >
-        {children}
+        <code className={`language-${lang}`}>{children}</code>
       </pre>
+      {isMounted && (
+        <div className="line-numbers-gutter" aria-hidden="true">
+          {lines.map((_, i) => (
+            <div key={i} className="line-number">
+              {i + 1}
+            </div>
+          ))}
+        </div>
+      )}
       <button onClick={() => setCopied(true)}>
         <Icon icon={copied ? 'copied' : 'copy'} />
       </button>
@@ -76,17 +93,52 @@ export function Code({ children, 'data-language': language }) {
         {`
           .code {
             position: relative;
+            display: flex;
+          }
+          .line-numbers-gutter {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 45px;
+            background: rgba(0, 0, 0, 0.2);
+            border-right: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 16px 8px;
+            text-align: right;
+            user-select: none;
+            pointer-events: none;
+            overflow: hidden;
+          }
+          .line-number {
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+            font-size: 13px;
+            line-height: 20px;
+            color: #8892a6;
+            display: block;
+          }
+          .code pre {
+            padding-left: 60px !important;
+            margin: 0 !important;
+            flex: 1;
           }
           .code button {
             appearance: none;
             position: absolute;
-            color: inherit;
-            background: var(--code-background);
+            color: #e3e8ef;
+            background: rgba(255, 255, 255, 0.1);
             top: ${lines.length === 1 ? '17px' : '13px'};
             right: 11px;
+            padding: 6px 8px;
             border-radius: 4px;
-            border: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             font-size: 15px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            z-index: 10;
+          }
+          .code button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
           }
         `}
       </style>
