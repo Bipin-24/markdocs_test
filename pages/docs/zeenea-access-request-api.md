@@ -1,4 +1,9 @@
-# Access Request API
+---
+title: Access Request API
+description: Manage access requests programmatically using the Actian Data Intelligence Platform REST API for approval workflows.
+---
+
+# {% $markdoc.frontmatter.title %}
 
 The Actian Data Intelligence Platform provides a dedicated public REST API for managing access requests. You can use the Access Request API to:
 * Update the status of an access request after approval.
@@ -9,8 +14,8 @@ The Actian Data Intelligence Platform provides a dedicated public REST API for m
 You can create a new Access Request API key in Zeenea Administration. To create the API Key, follow the instructions in [Create an API key](../Zeenea_Administration/zeenea-managing-api-keys.md#create-an-api-key).
 
 {% callout type="warning" %}
-Important: When creating the API key, you must select the **Access request** permission scope. This permission scope is required to manage access requests through the API.
-{% /callout%}
+When creating the API key, you must select the **Access request** permission scope. This permission scope is required to manage access requests through the API.
+{% /callout %}
 
 #### Request Headers
 

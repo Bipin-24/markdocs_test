@@ -1,4 +1,9 @@
-# Catalog Design API
+---
+title: Catalog Design API
+description: Retrieve and update metamodel details using the GraphQL-based Catalog Design API for data catalog configuration.
+---
+
+# {% $markdoc.frontmatter.title %}
 
 The Catalog Design API allows you to retrieve and update details of your metamodel. You can also use this API to retrieve property id, which can in turn be used for other purposes. List of available operations:
 * Retrieve information about a property by its name:
@@ -39,6 +44,10 @@ Note: To use the APIs with Playground, you will need a valid API Key in the "HTT
 ## Use Case Examples
 
 ### Example 1: Retrieve a specific property's id and type
+
+The below request will return the following:
+
+{% sideBySide %}
  
 ```js
 query FindPropertyByName($input: String!) {
@@ -51,8 +60,6 @@ query FindPropertyByName($input: String!) {
     }
 }
 ```
-
-The above request will return the following:
 
 ```json
 {
@@ -69,8 +76,13 @@ The above request will return the following:
   }
 }
 ``` 
+{% /sideBySide %}
 
 ### Example 2: List all possible values for a select-type property
+
+The below request will return the following: 
+
+{% sideBySide %}
 
 ```js
 query FindPropertyByName($input: String!) {
@@ -84,7 +96,7 @@ query FindPropertyByName($input: String!) {
 }
 ```
 
-The above request will return the following: 
+
 
 ```json
 {
@@ -104,3 +116,5 @@ The above request will return the following:
   }
 }
 ```
+
+{% /sideBySide %}

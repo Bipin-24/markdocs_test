@@ -1,13 +1,19 @@
-# Data Product API
+---
+title: Data Product API
+description: Upload and manage data products using Open Data Contract and Open Data Product standards via REST API.
+---
+
+# {% $markdoc.frontmatter.title %}
 
 The Actian Data Intelligence Platform leverages these standards managed by [Bitol](https://bitol.io/) (a Linux Foundation project):
 - [Open Data Contract Standard (ODCS)](https://github.com/bitol-io/open-data-contract-standard)
 - [Open Data Product Standard (ODPS)](https://github.com/bitol-io/open-data-product-standard)
+
 These YAML files can be uploaded to the platform through a dedicated REST API. 
 
 {% callout type="warning" %}
-Note: Before supporting ODCS, the Actian Data Intelligence Platform used the specifications from DataContract.com. If you have existing data contracts using this specification, we recommend using an external tool, such as [Data Contract CLI](https://cli.datacontract.com/), to migrate these data contracts. You can also reference Bitol services described on our [Actian Data Intelligence Platform Substack](https://dataintelligenceplatform.substack.com/p/so-you-want-to-work-with-data-contracts). 
-{% /callout%}
+Before supporting ODCS, the Actian Data Intelligence Platform used the specifications from DataContract.com. If you have existing data contracts using this specification, we recommend using an external tool, such as [Data Contract CLI](https://cli.datacontract.com/), to migrate these data contracts. You can also reference Bitol services described on our [Actian Data Intelligence Platform Substack](https://dataintelligenceplatform.substack.com/p/so-you-want-to-work-with-data-contracts). 
+{% /callout %}
 
 To use this API, you must generate an API key from the Administration page with a permission scope of **Admin** or **Scanner**, and include the API key secret in the request header using the `X-API-SECRET` parameter. To create data products, you must follow this sequence of API calls:
 

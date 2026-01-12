@@ -12,31 +12,77 @@ const items = [
   {
     title: 'Get started',
     links: [
-      { href: '/docs/zeenea-superadmin', children: 'Super Admin' },
-      { href: '/docs/zeenea-data-steward', children: 'Data Steward' },
-      { href: '/docs/zeenea-data-explorer', children: 'Data Explorer' },
-      { href: '/docs/zeenea-definitions', children: 'Definitions' }
-    ]
-  },
-  {
-    title: 'Features & Applications',
-    links: [
+      { href: '/docs/Getting_Started/zeenea-supported-browsers', children: 'Supported Browsers' },
+      { href: '/docs/Getting_Started/copyright', children: 'Copyright' },
+      { href: '/docs/zeenea-definitions', children: 'Definitions' },
       {
-        href: '/docs/syntax',
-        children: 'Syntax and schema',
+        href: '/docs/Getting_Started/your-first-steps',
+        children: 'Your First Steps',
         sublinks: [
-          { href: '/docs/nodes', children: 'Introduction' },
-          { href: '/docs/attributes', children: 'Examples' }
+          { href: '/docs/zeenea-superadmin', children: 'Super Admin' },
+          { href: '/docs/zeenea-data-steward', children: 'Data Steward' },
+          { href: '/docs/zeenea-data-explorer', children: 'Data Explorer' }
         ]
       },
     ]
   },
   {
-    title: 'APIs',
+    title: 'Features',
     links: [
-      { href: '/docs/zeenea-access-request-api', children: 'Access Request' },
-      { href: '/docs/zeenea-catalog-design-api', children: 'Catalog Design' },
-      { href: '/docs/zeenea-data-product-api', children: 'Data Product' },
+      {
+        href: '/docs/New_files/zeenea-administration',
+        children: 'Zeenea Administration',
+        sublinks: [
+          { href: '/docs/Zeenea_Administration/zeenea-managing-users', children: 'Manage Users' },
+          { href: '/docs/Zeenea_Administration/zeenea-managing-groups', children: 'Manage Groups' },
+        ]
+      },
+       {
+        href: '/docs/New_files/zeenea-studio',
+        children: 'Zeenea Studio',
+        sublinks: [
+          { href: '/docs/Zeenea_Studio/zeenea-studio-overview', children: 'Studio Overview' }
+        ]
+      },
+      {
+        href: '/docs/New_files/zeenea-explorer',
+        children: 'Zeenea Explorer',
+        sublinks: [
+          { href: '/docs/Zeenea_Explorer/zeenea-explorer-overview', children: 'Explorer Overview' }
+        ]
+      },
+    ]
+  },
+  {
+    title: 'Integrations',
+    links: [
+      {
+        href: '/docs/New_files/scanners',
+        children: 'Scanners',
+        sublinks: [
+          { href: '/docs/Scanners/zeenea-scanner-setup', children: 'Scanner Setup' },
+      
+        ]
+      },
+       {
+        href: '/docs/New_files/connectors',
+        children: 'Connectors',
+        sublinks: [
+          { href: '/docs/zeenea-connector-looker', children: 'Looker' },
+          { href: '/docs/zeenea-connectors-list', children: 'List' },
+          { href: '/docs/zeenea-dataset-detection', children: 'Dataset' },
+        ]
+      },
+      {
+        href: '/docs/New_files/api',
+        children: 'APIs',
+        sublinks: [
+          { href: '/docs/zeenea-access-request-api', children: 'Access Request' },
+          { href: '/docs/zeenea-catalog-design-api', children: 'Catalog Design' },
+          { href: '/docs/zeenea-data-product-api', children: 'Data Product' },
+          { href: '/docs/zeenea-graphql-api-v2-limitations', children: 'GraphQL' },
+        ]
+      },
     ]
   },
   {

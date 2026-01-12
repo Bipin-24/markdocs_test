@@ -14,6 +14,7 @@ import feedback from './feedback.markdoc';
 import quickstart from './quickstart.markdoc';
 import apitryit from './apitryit.markdoc';
 import { stepper, step } from './stepper.markdoc';
+import example from './markdoc-example.markdoc';
 
 export default {
   callout,
@@ -30,6 +31,7 @@ export default {
   feedback,
   quickstart,
   apitryit,
+  example,
   ...api,
   stepper,
   step,

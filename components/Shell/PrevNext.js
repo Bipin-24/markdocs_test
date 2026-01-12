@@ -8,20 +8,48 @@ const navigationOrder = [
   { href: '/docs/overview', title: 'Introduction' },
   
   // Get started
+  { href: '/docs/Getting_Started/zeenea-supported-browsers', title: 'Supported Browsers' },
+  { href: '/docs/Getting_Started/copyright', title: 'Copyright' },
+  { href: '/docs/zeenea-definitions', title: 'Definitions' },
+  { href: '/docs/Getting_Started/your-first-steps', title: 'Your First Steps' },
   { href: '/docs/zeenea-superadmin', title: 'Super Admin' },
   { href: '/docs/zeenea-data-steward', title: 'Data Steward' },
   { href: '/docs/zeenea-data-explorer', title: 'Data Explorer' },
-  { href: '/docs/zeenea-definitions', title: 'Definitions' },
   
-  // Features & Applications
-  { href: '/docs/syntax', title: 'Syntax and schema' },
-  { href: '/docs/nodes', title: 'Nodes Introduction' },
-  { href: '/docs/attributes', title: 'Attributes Examples' },
+  // Features - Zeenea Administration
+  { href: '/docs/New_files/zeenea-administration', title: 'Zeenea Administration' },
+  { href: '/docs/Zeenea_Administration/zeenea-managing-users', title: 'Manage Users' },
+  { href: '/docs/Zeenea_Administration/zeenea-managing-groups', title: 'Manage Groups' },
   
-  // APIs
+  // Features - Zeenea Studio
+  { href: '/docs/New_files/zeenea-studio', title: 'Zeenea Studio' },
+  { href: '/docs/Zeenea_Studio/zeenea-studio-overview', title: 'Studio Overview' },
+  
+  // Features - Zeenea Explorer
+  { href: '/docs/New_files/zeenea-explorer', title: 'Zeenea Explorer' },
+  { href: '/docs/Zeenea_Explorer/zeenea-explorer-overview', title: 'Explorer Overview' },
+  
+  // Integrations - Scanners
+  { href: '/docs/New_files/scanners', title: 'Scanners' },
+  { href: '/docs/Scanners/zeenea-scanner-setup', title: 'Scanner Setup' },
+  
+  // Integrations - Connectors
+  { href: '/docs/New_files/connectors', title: 'Connectors' },
+  { href: '/docs/zeenea-connector-looker', title: 'Looker' },
+  { href: '/docs/zeenea-connectors-list', title: 'List' },
+  { href: '/docs/zeenea-dataset-detection', title: 'Dataset' },
+  
+  // Integrations - APIs
+  { href: '/docs/New_files/apis', title: 'APIs' },
   { href: '/docs/zeenea-access-request-api', title: 'Access Request API' },
   { href: '/docs/zeenea-catalog-design-api', title: 'Catalog Design API' },
   { href: '/docs/zeenea-data-product-api', title: 'Data Product API' },
+  { href: '/docs/zeenea-graphql-api-v2-limitations', title: 'GraphQL' },
+  
+  // Markdoc - Additional
+  { href: '/docs/syntax', title: 'Syntax and schema' },
+  { href: '/docs/nodes', title: 'Nodes Introduction' },
+  { href: '/docs/attributes', title: 'Attributes Examples' },
   
   // Resources
   { href: '/docs/markdoc-features-guide', title: 'Markdoc Features Guide' },
