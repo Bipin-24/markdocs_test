@@ -84,7 +84,8 @@ const moon = (
 );
 
 export function ThemeToggle() {
-  const [theme, setTheme] = React.useState(undefined);
+  const [theme, setTheme] = React.useState('light');
+  const [mounted, setMounted] = React.useState(false);
   const [, setHovering] = React.useState(false);
 
   function setPreferredTheme(newTheme) {
@@ -97,6 +98,7 @@ export function ThemeToggle() {
   }
 
   React.useEffect(() => {
+    setMounted(true);
     let preferredTheme;
     try {
       preferredTheme = localStorage.getItem('theme');
@@ -117,6 +119,18 @@ export function ThemeToggle() {
   }, [theme]);
 
   const isDark = theme === 'dark'; // ? !hovering : hovering;
+
+  // Prevent hydration mismatch by not rendering button until mounted
+  if (!mounted) {
+    return (
+      <div className="theme-toggle">
+        <button className="light">
+          {sun}
+          <span>Light mode</span>
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div

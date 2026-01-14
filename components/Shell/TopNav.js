@@ -36,6 +36,7 @@ function Search() {
 
 export function TopNav({ children }) {
   const [showMobileNav, setShowMobileNav] = React.useState(false);
+  
   return (
     <div className="nav-bar">
       <nav>

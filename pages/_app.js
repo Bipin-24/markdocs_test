@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 
 import { AppLink as Link } from '../components/AppLink';
-import { Footer, SideNav, TableOfContents, TopNav } from '../components/Shell';
+import { Footer, SideNav, TableOfContents, TopNav, VersionControl } from '../components/Shell';
 
 import '@docsearch/css';
 import '@docsearch/css';
@@ -89,8 +89,8 @@ export default function MyApp(props) {
     <div className={`${isLandingPage ? 'page--landing' : ''}`}>
       <Head>
         <title>{`${TITLE} | ${title}`}</title>
-        <link rel="icon" type="image/png" href="/favicon.png" />
-        <link rel="shortcut icon" href="/favicon.png" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="alternate icon" href="/favicon.ico" />
         <link
           rel="preconnect"
           href={`https://${process.env.NEXT_PUBLIC_ALGOLIA_APP_ID}-dsn.algolia.net`}
@@ -127,9 +127,11 @@ export default function MyApp(props) {
         <span className="no-mobile">
           <Link href="https://esd.actian.com/">Downloads</Link>
         </span>
-        <span className="primary">
-          <Link href="/sandbox">Try</Link>
-        </span>
+        {isDocs && !isLandingPage && (
+          <span className="primary">
+            <VersionControl />
+          </span>
+        )}
       </TopNav>
       <div className="page">
         {isDocs && !isApiPage ? <SideNav /> : null}

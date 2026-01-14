@@ -7,7 +7,7 @@ export function Footer({ children: links, landing }) {
   const copyright = (
     <Link href="https://stripe.com">
       <svg
-        title="Built by Markdoc"
+        title="Built by Stripe"
         width="99"
         height="28"
         viewBox="0 0 99 28"
@@ -104,7 +104,7 @@ export function Footer({ children: links, landing }) {
 
   const fancyLinks = landing ? (
     <>
-      <h4 className="jumbo">
+      <h3 className="jumbo">
         {React.Children.toArray(links).map((l, i, a) => (
           <span className="main-link" key={i}>
             {l}
@@ -112,25 +112,25 @@ export function Footer({ children: links, landing }) {
           </span>
         ))}
         <span className="try-link">
-          <Link href="https://www.actian.com/data-intelligence/demo/">Request Demo </Link>
+          <Link href="/sandbox">Try Markdoc</Link>
         </span>
-      </h4>
+      </h3>
       <hr />
       <style jsx>
         {`
-          h4 {
+          h3 {
             margin: 0;
             display: flex;
             flex-wrap: wrap;
           }
 
-          h4 :global(.main-link:nth-child(n + 2)) {
+          h3 :global(.main-link:nth-child(n + 2)) {
             margin-left: 10px;
             display: inline-block;
             min-height: 0px;
           }
 
-          h4 :global(.main-link a) {
+          h3 :global(.main-link a) {
             text-decoration: none;
           }
 
@@ -147,7 +147,7 @@ export function Footer({ children: links, landing }) {
           }
 
           @media screen and (max-width: 1000px) {
-            h4 {
+            h3 {
               font-size: 35px;
               line-height: 46px;
             }
@@ -163,7 +163,7 @@ export function Footer({ children: links, landing }) {
             hr {
               margin: 0 auto;
             }
-            h4 {
+            h3 {
               font-size: 24px;
               line-height: 33px;
               text-align: center;
